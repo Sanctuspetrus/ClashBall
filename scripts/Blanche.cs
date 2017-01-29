@@ -8,8 +8,8 @@ public class Blanche : MonoBehaviour {
 	private Vector2 deplacement;
 
 	public float miniPuissance = 0;
-	public float maxPuissance = 100;
-	public float pasPuissance = 100;
+	public float maxPuissance = 250;
+	public float pasPuissance = 500;
 	public float coeffPuissance = 0;
 
 	// Use this for initialization
