@@ -68,13 +68,10 @@ public class BorduresCamera : MonoBehaviour {
 		//bordure bas
 		bordureBas.transform.position = bd;
 		dim = bg - bd;
-		Debug.Log (dim);
 		pos = dim;
-		Debug.Log (dim);
 		bordureBas.transform.position.Scale (new Vector3 (0.5F, 0.5F, 0.5F));
 		bordureBas.transform.Translate (pos/2);
 		dim.y = width;
-		Debug.Log (dim);
 		bordureBas.transform.localScale = dim;
 
 	}

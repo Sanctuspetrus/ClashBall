@@ -12,6 +12,8 @@ using System.Collections;
 
 public class DrawLineScript : MonoBehaviour {
 
+	private float distMax = 2f;
+
 	private LineRenderer lineRenderer;
 
 	public Transform origin;
@@ -25,18 +27,37 @@ public class DrawLineScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
 	
 		lineRenderer = GetComponent<LineRenderer> ();
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
-		//on trace le trait
-		lineRenderer.SetPosition (0, origin.position);
-		lineRenderer.SetPosition (1, destination.position);
 
+		float distance = Vector3.Distance (origin.position, destination.position);
+		if (distance < 5) {
+
+
+			lineRenderer.SetPosition (0, origin.position);
+			lineRenderer.SetPosition (1, destination.position);
+		} else {
+			
+			Vector3 scaledDirection = Vector3.Scale(destination.position,new Vector3(0.2f,0.2f,0.2f));
+			Vector3 val = new Vector3 (0.2f, 0.2f, 0.2f);
+
+		//	Debug.Log (destination.position);
+		//	Debug.Log (scaledDirection);
+			Vector3 temp = destination.position.normalized * 5;
+		//	Debug.Log (temp);
+		
+			//on trace le trait
+			lineRenderer.SetPosition (0, origin.position);
+			lineRenderer.SetPosition (1, temp);
+		}
 		//pression de left button
 	/*	if (Input.GetMouseButtonDown (0)) {
 			create = true;
