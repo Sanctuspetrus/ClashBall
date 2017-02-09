@@ -32,7 +32,7 @@ public class DeplacementManetteSCript : MonoBehaviour {
 			Vector3 positionCurseur = getAxisDirection () * 2;
 			positionCurseur.x += parent.gameObject.transform.position.x;
 			positionCurseur.y += parent.gameObject.transform.position.y;
-			positionCurseur.z += parent.gameObject.transform.position.z;
+			positionCurseur.z += parent.gameObject.transform.position.z + 1;
 
 			//Debug.Log (positionCurseur);
 
