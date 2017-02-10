@@ -52,6 +52,9 @@ public class Noire : MonoBehaviour {
 		deplacement = Vector3.ClampMagnitude (trajet, puissance);
 		// On applique la vitesse à l'objet
 		rb.velocity = deplacement;
+		//rotation de l'object dans la direciton du dash
+		float angle = Mathf.Atan2 (trajet.y, trajet.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
 	}
 
 	Vector2 calcTrajet(Vector2 depart, Vector2 arrive){

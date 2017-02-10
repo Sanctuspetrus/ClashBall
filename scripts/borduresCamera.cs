@@ -47,6 +47,7 @@ public class BorduresCamera : MonoBehaviour {
 		dim.x = width;
 		bordureGauche.transform.localScale = dim;
 
+
 		//bordure Droite
 		bordureDroite.transform.position = hd;
 		dim = bd - hd;
