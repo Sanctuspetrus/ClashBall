@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PositionColision : MonoBehaviour {
 
+	public int angleVulnerable = 90;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,29 +18,29 @@ public class PositionColision : MonoBehaviour {
 
 	//On vérifie si la colision est détectée à l'arriere du joueur
 	void OnCollisionEnter2D(Collision2D col){
-		foreach (ContactPoint2D contact in col.contacts) {
-			Debug.Log (contact.point);
 
-			Vector2 direction = new Vector2 ();
-			direction.x = transform.position.x - contact.point.x; 
-			direction.y = transform.position.y - contact.point.y; 
+		if (col.gameObject.tag == "Player") {
+			foreach (ContactPoint2D contact in col.contacts) {
 
-			Vector2 angle = new Vector2(Mathf.Cos(transform.eulerAngles.z * Mathf.Deg2Rad), Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad));
-			float angle2 = Vector2.Angle (angle, direction);
+				Vector2 direction = new Vector2 ();
+				direction.x = transform.position.x - contact.point.x; 
+				direction.y = transform.position.y - contact.point.y; 
 
-			Vector3 cross = Vector3.Cross(angle, direction);
-			if (cross.z > 0)
-				angle2 = 360-angle2;
+				Vector2 angle = new Vector2 (Mathf.Cos (transform.eulerAngles.z * Mathf.Deg2Rad), Mathf.Sin (transform.eulerAngles.z * Mathf.Deg2Rad));
+				float angle2 = Vector2.Angle (angle, direction);
 
-			//Debug.Log ("angle : " + angle2 + " || rotation : " + direction + "  || tranfo : " + transform.eulerAngles.z);
-			if (angle2 > 180) {
-				Debug.Log ("zertghyjuk");
-				SoundEffectHelper.Instance.MakeMaguichSound (transform.position);
+				Vector3 cross = Vector3.Cross (angle, direction);
+				if (cross.z > 0)
+					angle2 = 360 - angle2;
+
+				//variateur est égale à la valeur des 2 zones invulnérables se trouvant derriere le joueur (variant entre 0 et 180)
+				float variateur = (180 - angleVulnerable) / 2; 
+
+				if (angle2 > (180 + variateur) && angle2 < (180 + variateur + angleVulnerable)) {
+					SoundEffectHelper.Instance.MakeMaguichSound (transform.position);
+				}
+					
 			}
-
-
-
 		}
-
 	}
 }
