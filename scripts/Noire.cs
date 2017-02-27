@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Noire : MonoBehaviour {
 
+	public Transform curseur;
+
 	private bool mouseButtonHold = false;
 	private Rigidbody2D rb;
 	private Vector2 deplacement;
@@ -35,12 +37,6 @@ public class Noire : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionExit2D (Collision2D collision){
-		if(collision.gameObject.tag == "noire"){
-
-		}
-	}
-
 	void dash(Vector2 destination, float puissance){
 		// Récupération de la position de l'objet sur un plan 2d
 		Vector2 pos = transform.position;
@@ -69,17 +65,11 @@ public class Noire : MonoBehaviour {
 
 	void mouseUp(){
 
-		Component child = this.GetComponentInChildren<DeplacementManetteSCript> ();
 
-		if (child == null) {
-			Debug.Log ("ERREUR CHILD");
-		} else {
-			Debug.Log (child);
-			Vector2 pos = new Vector2(child.gameObject.transform.position.x, child.gameObject.transform.position.y);
+		Vector2 pos = new Vector2(curseur.position.x, curseur.position.y);
 			dash (pos, coeffPuissance);
 			coeffPuissance = miniPuissance;
 
-		}
 	}
 
 }

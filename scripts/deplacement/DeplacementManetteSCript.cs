@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DeplacementManetteSCript : MonoBehaviour {
 
+	public Transform player;
+
 
 	void Awake(){
 		string[] names = Input.GetJoystickNames();
@@ -23,26 +25,21 @@ public class DeplacementManetteSCript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		Component parent;
-		if ((parent = this.GetComponentInParent<Noire>()) == null) {
-			Debug.Log ("ERREUR GET PARENT");
-		} else {
-			
+				
 			Vector3 positionCurseur = getAxisDirection () * 2;
-			positionCurseur.x += parent.gameObject.transform.position.x;
-			positionCurseur.y += parent.gameObject.transform.position.y;
-			positionCurseur.z += parent.gameObject.transform.position.z + 1;
+		positionCurseur.x += player.position.x;
+		positionCurseur.y += player.position.y;
+		positionCurseur.z += player.position.z + 1;
 
 			//Debug.Log (positionCurseur);
 
 			gameObject.transform.position = positionCurseur;
-		}
+
 
 	}
 
 
-	void DebugJoystickButtonPressed(){
+	/*void DebugJoystickButtonPressed(){
 		int joyNum = 1;
 		int buttonNum = 0;
 		int keyCode = 0;
@@ -57,7 +54,7 @@ public class DeplacementManetteSCript : MonoBehaviour {
 				joyNum++;
 			}
 		}
-	}
+	}*/
 
 	Vector3 getAxisDirection(){
 		return new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
