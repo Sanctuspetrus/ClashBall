@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 62b19f43de9c46342927c8f139d3b1a6
-timeCreated: 1486762193
+timeCreated: 1488274861
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - explosionSound: {instanceID: 0}
+  - explosionSound: {fileID: 8300000, guid: 4140ddcaa910b0a43827f618c280e9ea, type: 3}
   - maguichSound: {fileID: 8300000, guid: 034e387572df6574faefc9db6cd707e7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
