@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 212984593885799008}
   - component: {fileID: 58104795953494384}
   - component: {fileID: 50855308167406186}
-  - component: {fileID: 114599824735034210}
   - component: {fileID: 114377451937119608}
+  - component: {fileID: 114306984212786966}
+  - component: {fileID: 114206675369645662}
   m_Layer: 0
   m_Name: joueurBlanc
   m_TagString: Player
@@ -39,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1801742207286686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.61, y: -0.22, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,6 +79,35 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &114206675369645662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801742207286686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe89c8182fc25349943ef801560e971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effet: {fileID: 198016200931824240, guid: 044f41053a66cd24c9623ada32e8ff53, type: 2}
+  shakeAmt: 0.1
+  delay: 0.1
+--- !u!114 &114306984212786966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801742207286686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74b12cd67681a0498dbade66a00545b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniPuissance: 0
+  maxPuissance: 100
+  pasPuissance: 100
+  coeffPuissance: 0
 --- !u!114 &114377451937119608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,21 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleVulnerable: 90
---- !u!114 &114599824735034210
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1801742207286686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5f9c26b393d5840933eaae0d93cde0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  miniPuissance: 0
-  maxPuissance: 100
-  pasPuissance: 75
-  coeffPuissance: 0
 --- !u!212 &212984593885799008
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -136,7 +151,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24a31dd983d89b841bd4ba849fb69573, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 623fba9ebc21a2b41aa4efff65ee7c32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

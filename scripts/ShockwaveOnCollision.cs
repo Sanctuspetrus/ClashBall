@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShockwaveOnCollision : MonoBehaviour {
-	public ParticleSystem explosion;
+	public ParticleSystem effet;
 	public float shakeAmt = 0.1f;
 	public float delay = 0.1f;
 
@@ -23,7 +23,12 @@ public class ShockwaveOnCollision : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D (Collision2D collision){
-		Instantiate (explosion, collision.transform.position, Quaternion.identity);
+		Vector2 contactPoint = collision.contacts [0].point;
+		float magnitude = collision.relativeVelocity.magnitude;
+		shakeAmt = magnitude / 1000;
+		var em = effet.emission;
+		em.SetBursts (new ParticleSystem.Burst[]{new ParticleSystem.Burst (0f, (short)(magnitude*10))});
+		Instantiate (effet, contactPoint, Quaternion.identity);
 		CameraShake ();
 	}
 

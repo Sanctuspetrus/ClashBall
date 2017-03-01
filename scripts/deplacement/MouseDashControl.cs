@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MouseDashControl : MonoBehaviour {
 
+	private Camera mainCamera;
 	private bool mouseButtonHold = false;
 	private Rigidbody2D rb;
 	private Vector2 deplacement;
@@ -15,6 +16,7 @@ public class MouseDashControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		mainCamera = Camera.main;
 		coeffPuissance = miniPuissance;
 		deplacement = new Vector2 ();
 		rb = GetComponent<Rigidbody2D>();
@@ -48,6 +50,7 @@ public class MouseDashControl : MonoBehaviour {
 		rb.velocity = deplacement;
 
 		//rotation de l'object dans la direciton du dash
+		rb.angularVelocity = 0;
 		float angle = Mathf.Atan2 (trajet.y, trajet.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
 
@@ -64,7 +67,9 @@ public class MouseDashControl : MonoBehaviour {
 	}
 
 	void mouseUp(){
-		Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 mousePos = Input.mousePosition;
+		mousePos.z = -mainCamera.transform.position.z;
+		Vector2 pos = mainCamera.ScreenToWorldPoint(mousePos);
 		dash (pos, coeffPuissance);
 		coeffPuissance = miniPuissance;
 	}
