@@ -25,9 +25,9 @@ public class ShockwaveOnCollision : MonoBehaviour {
 	void OnCollisionExit2D (Collision2D collision){
 		Vector2 contactPoint = collision.contacts [0].point;
 		float magnitude = collision.relativeVelocity.magnitude;
-		shakeAmt = magnitude / 1000;
+		shakeAmt = magnitude / 700;
 		var em = effet.emission;
-		em.SetBursts (new ParticleSystem.Burst[]{new ParticleSystem.Burst (0f, (short)(magnitude*10))});
+		em.SetBursts (new ParticleSystem.Burst[]{new ParticleSystem.Burst (0f, (short)(magnitude*5))});
 		Instantiate (effet, contactPoint, Quaternion.identity);
 		CameraShake ();
 	}

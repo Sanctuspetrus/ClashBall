@@ -568,11 +568,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 107
+    cnt0: 33
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 107
+    cntmax0: 33
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
