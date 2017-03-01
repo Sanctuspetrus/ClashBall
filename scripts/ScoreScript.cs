@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManagerScript : MonoBehaviour {
+public class ScoreScript : MonoBehaviour {
 
-	public bool counterDownDone = false;
 
 
 }
