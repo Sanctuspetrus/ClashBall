@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class PositionColision : MonoBehaviour {
 
 	public int angleVulnerable = 90;
-	public int score = 0;
-
-	public Text scoreText;
 
 	// Use this for initialization
 	void Start () {
@@ -42,9 +38,6 @@ public class PositionColision : MonoBehaviour {
 
 				if (angle2 > (180 + variateur) && angle2 < (180 + variateur + angleVulnerable)) {
 					SoundEffectHelper.Instance.MakeMaguichSound (transform.position);
-					score++;
-					scoreText.text = score.ToString ();
-
 				}
 					
 			}

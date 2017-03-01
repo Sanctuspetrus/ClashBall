@@ -9,9 +9,6 @@ public class MouseDashControl : MonoBehaviour {
 	private Rigidbody2D rb;
 	private Vector2 deplacement;
 
-	//permet de récupérer la variable qui indique si le décompte de départ est arrivé à terme
-	private GameManagerScript GMS;
-
 	public float miniPuissance = 0;
 	public float maxPuissance = 250;
 	public float pasPuissance = 500;
@@ -23,24 +20,21 @@ public class MouseDashControl : MonoBehaviour {
 		coeffPuissance = miniPuissance;
 		deplacement = new Vector2 ();
 		rb = GetComponent<Rigidbody2D>();
-
-
-		GMS = GameObject.Find ("Script").GetComponent<GameManagerScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-			if (Input.GetMouseButtonDown (0)) {
-				mouseButtonHold = true;
-				mouseDown ();
-			}
-			if (Input.GetMouseButtonUp (0)) {
-				mouseUp ();
-				mouseButtonHold = false;
-			}
-			if (mouseButtonHold) {
-				mouseDown ();
-			}
+		if (Input.GetMouseButtonDown (0)) {
+			mouseButtonHold = true;
+			mouseDown ();
+		}
+		if (Input.GetMouseButtonUp (0)) {
+			mouseUp();
+			mouseButtonHold = false;
+		}
+		if (mouseButtonHold) {
+			mouseDown ();
+		}
 	}
 
 	void dash(Vector2 destination, float puissance){
@@ -73,13 +67,10 @@ public class MouseDashControl : MonoBehaviour {
 	}
 
 	void mouseUp(){
-		//on vérifie si le countdown est terminé
-		if (GMS.counterDownDone) {
-			Vector3 mousePos = Input.mousePosition;
-			mousePos.z = -mainCamera.transform.position.z;
-			Vector2 pos = mainCamera.ScreenToWorldPoint (mousePos);
-			dash (pos, coeffPuissance);
-		}
+		Vector3 mousePos = Input.mousePosition;
+		mousePos.z = -mainCamera.transform.position.z;
+		Vector2 pos = mainCamera.ScreenToWorldPoint(mousePos);
+		dash (pos, coeffPuissance);
 		coeffPuissance = miniPuissance;
 	}
 

@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 50713872471881352}
   - component: {fileID: 114361138684077674}
   - component: {fileID: 114126028947453710}
-  - component: {fileID: 114650526080864244}
   m_Layer: 0
   m_Name: joueurNoir
   m_TagString: Player
@@ -38,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1769989262458460}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.29, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50713872471881352
 Rigidbody2D:
   serializedVersion: 4
@@ -60,7 +59,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 2e403c33dfe214f47bff07e1617789a0, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -73,12 +72,12 @@ CircleCollider2D:
   m_GameObject: {fileID: 1769989262458460}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2e403c33dfe214f47bff07e1617789a0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.15
+  m_Radius: 1
 --- !u!114 &114126028947453710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,20 +108,6 @@ MonoBehaviour:
   maxPuissance: 100
   pasPuissance: 75
   coeffPuissance: 0
---- !u!114 &114650526080864244
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1769989262458460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fa4edcf17dd2949a918fa34c9a70af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angleVulnerable: 90
-  score: 0
-  scoreText: {fileID: 0}
 --- !u!212 &212413571373860388
 SpriteRenderer:
   m_ObjectHideFlags: 1
