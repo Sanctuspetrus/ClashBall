@@ -14,27 +14,33 @@ public class Noire : MonoBehaviour {
 	public float pasPuissance = 500;
 	public float coeffPuissance = 0;
 
+	//permet de récupérer la variable qui indique si le décompte de départ est arrivé à terme
+	private GameManagerScript GMS;
+
 	// Use this for initialization
 	void Start () {
 		coeffPuissance = miniPuissance;
 		deplacement = new Vector2 ();
 		rb = GetComponent<Rigidbody2D>();
 
+		GMS = GameObject.Find ("Script").GetComponent<GameManagerScript> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown("joystick 1 button 0")) {
-			mouseButtonHold = true;
-			mouseDown ();
-		}
-		if (Input.GetKeyUp("joystick 1 button 0")) {
-			mouseUp();
-			mouseButtonHold = false;
-		}
-		if (mouseButtonHold) {
-			mouseDown ();
-		}
+
+			if (Input.GetKeyDown ("joystick 1 button 0")) {
+				mouseButtonHold = true;
+				mouseDown ();
+			}
+			if (Input.GetKeyUp ("joystick 1 button 0")) {
+				mouseUp ();
+				mouseButtonHold = false;
+			}
+			if (mouseButtonHold) {
+				mouseDown ();
+			}
+
 	}
 
 	void dash(Vector2 destination, float puissance){
@@ -64,12 +70,12 @@ public class Noire : MonoBehaviour {
 	}
 
 	void mouseUp(){
-
-
-		Vector2 pos = new Vector2(curseur.position.x, curseur.position.y);
+		Vector2 pos;
+		if (GMS.counterDownDone) {
+			pos = new Vector2(curseur.position.x, curseur.position.y);
 			dash (pos, coeffPuissance);
-			coeffPuissance = miniPuissance;
-
+		}
+		coeffPuissance = miniPuissance;
 	}
 
 }

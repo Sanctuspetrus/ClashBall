@@ -280,7 +280,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
   m_Events:
-  - time: 4
+  - time: 3
     functionName: Set_Count_Down
     data: 
     objectReferenceParameter: {fileID: 0}
