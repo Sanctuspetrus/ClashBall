@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114377451937119608}
   - component: {fileID: 114306984212786966}
   - component: {fileID: 114206675369645662}
+  - component: {fileID: 114449503845940704}
   m_Layer: 0
   m_Name: joueurBlanc
   m_TagString: Player
@@ -60,7 +61,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 2e403c33dfe214f47bff07e1617789a0, type: 2}
+  m_Material: {fileID: 6200000, guid: 74387a1c7ba64d743b23da043b25a110, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -105,8 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniPuissance: 0
-  maxPuissance: 100
-  pasPuissance: 100
+  maxPuissance: 50
+  pasPuissance: 50
   coeffPuissance: 0
 --- !u!114 &114377451937119608
 MonoBehaviour:
@@ -122,6 +123,18 @@ MonoBehaviour:
   angleVulnerable: 90
   score: 0
   scoreText: {fileID: 0}
+--- !u!114 &114449503845940704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801742207286686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fe26706b78e6841ad5d39ca0823c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curseur: {fileID: 0}
 --- !u!212 &212984593885799008
 SpriteRenderer:
   m_ObjectHideFlags: 1
