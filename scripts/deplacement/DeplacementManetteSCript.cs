@@ -12,7 +12,6 @@ public class DeplacementManetteSCript : MonoBehaviour {
 		Debug.Log ("Connoected Joysticks ");
 		for (int i = 0; i < names.Length; i++) {
 			Debug.Log("Joystick" + (i+1) + " = " + names[i]);
-		
 		}
 
 	}
