@@ -10,8 +10,12 @@ public class PositionColision : MonoBehaviour {
 
 	public Text scoreText;
 
+	private ReplacementScript rep;
+
 	// Use this for initialization
 	void Start () {
+
+		rep = GameObject.Find ("Script").GetComponent<ReplacementScript> ();
 		
 	}
 	
@@ -44,9 +48,8 @@ public class PositionColision : MonoBehaviour {
 					SoundEffectHelper.Instance.MakeMaguichSound (transform.position);
 					score++;
 					scoreText.text = score.ToString ();
-
+					rep.replacement ();
 				}
-					
 			}
 		}
 	}
