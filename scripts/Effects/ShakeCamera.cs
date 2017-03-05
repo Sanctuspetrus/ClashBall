@@ -5,23 +5,20 @@ public class ShakeCamera : MonoBehaviour
 {
 	Vector3 originalCameraPosition;
 
-	public float shakeAmt = 0.5f;
+	public float shakeAmt = 0.1f;
 	public float delay = 0.1f;
 
-	public Camera mainCamera;
+	private Camera mainCamera;
 
 	public void Start() 
 	{
 		mainCamera = Camera.main;
 		originalCameraPosition = mainCamera.transform.position;
-		InvokeRepeating("CameraShake", 0, .001f);
-		Invoke("StopShaking", delay);
-		Destroy (gameObject, delay+1);
 	}
 
-	public void Update() 
-	{
-		
+	public void Play(){
+		InvokeRepeating("CameraShake", 0, .001f);
+		Invoke("StopShaking", delay);
 	}
 
 	void CameraShake()

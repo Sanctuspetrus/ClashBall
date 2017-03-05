@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class MouseDashControl : MonoBehaviour {
 
-	private Camera mainCamera;
-	private bool mouseButtonHold = false;
-	private Rigidbody2D rb;
-	private Vector2 deplacement;
+	// PRIVATE
+	Camera mainCamera;
+	bool mouseButtonHold = false;
+	Rigidbody2D rb;
+	Vector2 deplacement;
 
-	//permet de récupérer la variable qui indique si le décompte de départ est arrivé à terme
+	// permet de récupérer la variable qui indique si le décompte de départ est arrivé à terme
 	private GameManagerScript GMS;
 
+	// PUBLIC
 	public float miniPuissance = 0;
 	public float maxPuissance = 250;
 	public float pasPuissance = 500;
@@ -59,7 +61,6 @@ public class MouseDashControl : MonoBehaviour {
 		rb.angularVelocity = 0;
 		float angle = Mathf.Atan2 (trajet.y, trajet.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
-
 	}
 
 	Vector2 calcTrajet(Vector2 depart, Vector2 arrive){

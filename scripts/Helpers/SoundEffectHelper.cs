@@ -7,6 +7,8 @@ public class SoundEffectHelper : MonoBehaviour {
 
 	public AudioClip explosionSound;
 	public AudioClip maguichSound;
+	public AudioClip bumpSound;
+	public AudioClip clashSound;
 
 	void Awake(){
 
@@ -25,6 +27,16 @@ public class SoundEffectHelper : MonoBehaviour {
 	public void MakeMaguichSound(Vector3 pos)
 	{
 		MakeSound(maguichSound, pos);
+	}
+
+	public void MakeBumpSound(Vector3 pos)
+	{
+		MakeSound(bumpSound, pos);
+	}
+
+	public void MakeClashSound(Vector3 pos)
+	{
+		MakeSound(clashSound, pos);
 	}
 
 

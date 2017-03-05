@@ -11,6 +11,13 @@ public class ReplacementScript : MonoBehaviour {
 
 	private GameManagerScript GMS;
 
+	void OnEnable() {
+		GameScript.OnStartRound += replacement;
+	}
+
+	void OnDisable(){
+		GameScript.OnStartRound -= replacement;
+	}
 
 
 	// Use this for initialization
@@ -22,11 +29,6 @@ public class ReplacementScript : MonoBehaviour {
 		joueur2 = GameObject.Find ("joueurNoir");
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 
 	public void replacement(){
@@ -36,7 +38,7 @@ public class ReplacementScript : MonoBehaviour {
 		Vector3 newPos1 = new Vector3 (-5f, 0f, 0f);
 		Vector3 newPos2 = new Vector3 (5f, 0f, 0f);
 		Quaternion newRot1 = Quaternion.Euler (0f, 0f, 90f);
-		Quaternion newRot2 = Quaternion.Euler (0f, 0f, -90f);
+		Quaternion newRot2 = Quaternion.Euler (0f, 0f, 90f);
 
 		//on replace les deux joueurs dans leur position initiale
 		joueur1.transform.position = newPos1;
@@ -48,7 +50,6 @@ public class ReplacementScript : MonoBehaviour {
 		joueur2.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0f, 0f);
 
 		animator.Play ("ReadyAnimation", -1, 0f);
-
 	}
 
 }

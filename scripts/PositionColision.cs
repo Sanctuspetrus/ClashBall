@@ -11,17 +11,12 @@ public class PositionColision : MonoBehaviour {
 	public Text scoreText;
 
 	private ReplacementScript rep;
+	private Player ps;
 
 	// Use this for initialization
 	void Start () {
-
 		rep = GameObject.Find ("Script").GetComponent<ReplacementScript> ();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		ps = GetComponent<Player> ();
 	}
 
 	//On vérifie si la colision est détectée à l'arriere du joueur
@@ -45,12 +40,22 @@ public class PositionColision : MonoBehaviour {
 				float variateur = (180 - angleVulnerable) / 2; 
 
 				if (angle2 > (180 + variateur) && angle2 < (180 + variateur + angleVulnerable)) {
-					SoundEffectHelper.Instance.MakeMaguichSound (transform.position);
+					Debug.Log (this.gameObject.name + " a touché !");
 					score++;
 					scoreText.text = score.ToString ();
-					rep.replacement ();
+					ps.KillPlayer ();
+					Invoke ("reinitializeGameState", 1);
+					//rep.replacement ();
+				} else {
+					SoundEffectHelper.Instance.MakeClashSound (transform.position);
 				}
 			}
+		} else {
+			//SoundEffectHelper.Instance.MakeBumpSound (transform.position);
 		}
+	}
+
+	void reinitializeGameState(){
+		rep.replacement ();
 	}
 }

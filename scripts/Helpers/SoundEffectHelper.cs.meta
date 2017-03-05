@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: 62b19f43de9c46342927c8f139d3b1a6
-timeCreated: 1488274861
+timeCreated: 1488642851
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - explosionSound: {fileID: 8300000, guid: 4140ddcaa910b0a43827f618c280e9ea, type: 3}
   - maguichSound: {fileID: 8300000, guid: 034e387572df6574faefc9db6cd707e7, type: 3}
+  - bumpSound: {fileID: 8300000, guid: 50f1a423732d08b44a39bafe190d4bfe, type: 3}
+  - clashSound: {fileID: 8300000, guid: 49a9ab53c08c60d48a335d96e0355e2c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
